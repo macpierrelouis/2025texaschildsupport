@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Texas Child Support Calculator (Corrected Automated Taxes)&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Custom scrollbar for better aesthetics */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-track {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f1f1f1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #888;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #555;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info-tooltip {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info-tooltip .tooltiptext {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>visibility: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 250px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 125%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: -125px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info-tooltip .tooltiptext::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: -5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-width: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-style: solid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #555 transparent transparent transparent;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info-tooltip:hover .tooltiptext {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>visibility: visible;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input[type="number"]::-webkit-inner-spin-button,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input[type="number"]::-webkit-outer-spin-button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-appearance: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input[type="number"] {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-moz-appearance: textfield;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-gradient-to-br from-sky-100 via-indigo-50 to-purple-100 min-h-screen flex flex-col items-center justify-center p-4 selection:bg-indigo-500 selection:text-white"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bg-white shadow-2xl rounded-xl p-6 md:p-10 w-full max-w-3xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="mb-8 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl md:text-4xl font-bold text-indigo-700"&gt;Texas Child Support Calculator&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-600 mt-2 text-sm md:text-base"&gt;With Corrected Automated Tax Calculation (2025 OAG Guidelines)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;form id="supportForm" class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Income Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-semibold text-indigo-600 mb-3 border-b pb-2"&gt;Obligor's Monthly Income &amp; Deductions&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="md:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="grossMonthlyIncome" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Gross Monthly Income</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Total income from all sources before any deductions (wages, self-employment, bonuses, etc.).&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="grossMonthlyIncome" placeholder="e.g., 3000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="md:col-span-2 flex items-center space-x-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input id="isSelfEmployed" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="isSelfEmployed" class="text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Is the obligor self-employed?</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Check this box if the paying parent is self-employed. This affects how Social Security/Medicare taxes are calculated.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="stateIncomeTax" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>State Income Tax Paid Monthly (if any)</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Texas has no state income tax. Enter if income is earned in a state with income tax.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="stateIncomeTax" placeholder="e.g., 0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="unionDues" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Mandatory Union Dues Paid Monthly</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Only enter if union membership and dues are a condition of employment.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="unionDues" placeholder="e.g., 0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="childHealthInsurance" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Child(ren)'s Health Insurance Premium Paid Monthly</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Portion of health insurance premium specifically for the child(ren) in this case.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="childHealthInsurance" placeholder="e.g., 209.22" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="childDentalInsurance" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Child(ren)'s Dental Insurance Premium Paid Monthly</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Portion of dental insurance premium specifically for the child(ren) in this case (if separate).&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="childDentalInsurance" placeholder="e.g., 0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Children Information Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-semibold text-indigo-600 mb-3 border-b pb-2"&gt;Children Information&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="childrenInCase" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Number of Children in This Case</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Number of children for whom support is being calculated in the current legal action.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="childrenInCase" min="1" placeholder="e.g., 1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="otherChildren" class="block text-sm font-medium text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Number of Other Children Obligor Supports</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="info-tooltip text-indigo-500"&gt;(?)</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="tooltiptext"&gt;Number of other children (not in this case) for whom the obligor has a legal duty of support (e.g., from a different relationship).&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="otherChildren" min="0" placeholder="e.g., 0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition duration-150 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Calculate Support</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Results Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="results" class="mt-10 p-6 bg-indigo-50 rounded-lg shadow hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-semibold text-indigo-700 mb-4 text-center"&gt;Estimated Calculation Breakdown&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-700 text-sm md:text-base"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Gross Monthly Income:&lt;/strong&gt; &lt;span id="resultGMI" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Calculated FICA Tax:&lt;/strong&gt; &lt;span id="resultFICATax" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Calculated Federal Income Tax:&lt;/strong&gt; &lt;span id="resultFedTax" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Other Deductions (Manual):&lt;/strong&gt; &lt;span id="resultOtherDeductions" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;hr class="md:col-span-2 my-1 border-indigo-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="font-bold"&gt;&lt;strong&gt;Net Monthly Income (NMI):&lt;/strong&gt; &lt;span id="resultNMI" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;p class="font-bold"&gt;&lt;strong&gt;Effective NMI for Calculation:&lt;/strong&gt; &lt;span id="resultEffectiveNMI" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;hr class="md:col-span-2 my-1 border-indigo-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Number of Children in Case:&lt;/strong&gt; &lt;span id="resultNumChildren" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Number of Other Supported Children:&lt;/strong&gt; &lt;span id="resultOtherChildren" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Applicable Support Percentage:&lt;/strong&gt; &lt;span id="resultPercentage" class="float-right font-mono"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="md:col-span-2 mt-4 pt-4 border-t-2 border-indigo-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xl md:text-2xl font-bold text-indigo-700 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Estimated Monthly Child Support: $&lt;span id="resultSupportAmount" class="text-green-600"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">             </span>&lt;p class="text-center italic text-xs mt-4 text-gray-500"&gt;Note: NMI for calculation is capped at $9,200. If actual NMI is higher, calculation uses $9,200.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Error Message Box --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="errorMessage" class="mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow hidden text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="errorText"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="mt-10 text-center text-xs text-gray-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; This calculator provides an estimate for informational purposes only and is not legal advice. The actual child support amount can be different based on a court order and specific circumstances. Consult with a qualified attorney for legal advice regarding your situation. Tax calculations are based on the 2025 OAG Tax Charts for a single individual with one exemption (Gross Pay MINUS $1244.00 = Adjusted Gross Pay for Federal Income Tax calculation).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- DATA FROM 2025 OAG TAX CHARTS ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Standard percentages for Net Monthly Income (NMI) &gt; $1000</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const standardPercentages = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>1: [0.2000, 0.1750, 0.1600, 0.1475, 0.1360, 0.1250, 0.1142, 0.1035],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>2: [0.2500, 0.2250, 0.2063, 0.1900, 0.1750, 0.1600, 0.1450, 0.1300],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>3: [0.3000, 0.2750, 0.2513, 0.2325, 0.2150, 0.1980, 0.1810, 0.1640],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>4: [0.3500, 0.3250, 0.2975, 0.2750, 0.2538, 0.2340, 0.2140, 0.1940],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>5: [0.4000, 0.3750, 0.3438, 0.3175, 0.2925, 0.2690, 0.2460, 0.2230],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>6: [0.4000, 0.3750, 0.3438, 0.3175, 0.2925, 0.2690, 0.2460, 0.2230]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Low income percentages for Net Monthly Income (NMI) &lt;= $1000</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const lowIncomePercentages = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>1: [0.1500, 0.1250, 0.1125, 0.1013, 0.0900, 0.0800, 0.0713, 0.0625],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>2: [0.2000, 0.1750, 0.1563, 0.1400, 0.1250, 0.1100, 0.0963, 0.0825],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>3: [0.2500, 0.2250, 0.2013, 0.1825, 0.1650, 0.1480, 0.1313, 0.1145],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>4: [0.3000, 0.2750, 0.2513, 0.2275, 0.2050, 0.1840, 0.1638, 0.1435],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>5: [0.3500, 0.3250, 0.2975, 0.2725, 0.2488, 0.2260, 0.2038, 0.1815],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>6: [0.3500, 0.3250, 0.2975, 0.2725, 0.2488, 0.2260, 0.2038, 0.1815]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const NMI_CAP = 9200;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const LOW_INCOME_THRESHOLD = 1000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const FEDERAL_AGP_ADJUSTMENT = 1244.00; // Amount to subtract from GMI for Federal Income Tax calculation</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- DOM Elements ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const supportForm = document.getElementById('supportForm');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resultsDiv = document.getElementById('results');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const errorMessageDiv = document.getElementById('errorMessage');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const errorTextP = document.getElementById('errorText');</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Tax Calculation Function (based on 2025 OAG Chart) ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calculateTaxes(gmi, isSelfEmployed) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let socialSecurityTax = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let federalIncomeTax = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (gmi &lt;= 0) return { socialSecurityTax: 0, federalIncomeTax: 0 };</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 1. Calculate Social Security &amp; Medicare (FICA)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// This is based on the Gross Monthly Income (gmi)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isSelfEmployed) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Self-Employment Tax is 15.3% on 92.35% of net earnings from self-employment</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const netEarnings = gmi * 0.9235;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>socialSecurityTax = netEarnings * 0.153;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Standard Employee FICA is 7.65% of gmi</p>
+<p class="p1"><span class="Apple-converted-space">                </span>socialSecurityTax = gmi * 0.0765;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 2. Calculate Federal Income Tax (based on OAG Monthly chart for SINGLE, 1 allowance)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// First, calculate Adjusted Gross Pay (AGP) by subtracting the standard allowance</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let adjustedGrossPay = gmi - FEDERAL_AGP_ADJUSTMENT;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (adjustedGrossPay &lt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>adjustedGrossPay = 0; // AGP cannot be negative for tax calculation</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Then, apply tax brackets to the calculated adjustedGrossPay</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (adjustedGrossPay &gt; 21110) { federalIncomeTax = 5874.94 + (adjustedGrossPay - 21110) * 0.37; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (adjustedGrossPay &gt; 16552) { federalIncomeTax = 4279.64 + (adjustedGrossPay - 16552) * 0.35; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (adjustedGrossPay &gt; 8506) { federalIncomeTax = 1704.92 + (adjustedGrossPay - 8506) * 0.32; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (adjustedGrossPay &gt; 4354) { federalIncomeTax = 718.44 + (adjustedGrossPay - 4354) * 0.24; } // Typo corrected</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (adjustedGrossPay &gt; 2096) { federalIncomeTax = 221.68 + (adjustedGrossPay - 2096) * 0.22; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (adjustedGrossPay &gt; 602) { federalIncomeTax = 42.40 + (adjustedGrossPay - 602) * 0.12; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (adjustedGrossPay &gt; 178) { federalIncomeTax = (adjustedGrossPay - 178) * 0.10; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else { federalIncomeTax = 0; }</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (federalIncomeTax &lt; 0) federalIncomeTax = 0; // Tax cannot be negative</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>return { socialSecurityTax, federalIncomeTax };</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Main Form Submission Handler ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>supportForm.addEventListener('submit', function(event) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>event.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clearPreviousResults();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Get and parse input values</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const gmi = parseFloat(document.getElementById('grossMonthlyIncome').value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const isSelfEmployed = document.getElementById('isSelfEmployed').checked;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const stateTaxes = parseFloat(document.getElementById('stateIncomeTax').value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const unionDues = parseFloat(document.getElementById('unionDues').value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const healthIns = parseFloat(document.getElementById('childHealthInsurance').value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const dentalIns = parseFloat(document.getElementById('childDentalInsurance').value) || 0;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let childrenInCase = parseInt(document.getElementById('childrenInCase').value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let otherChildren = parseInt(document.getElementById('otherChildren').value);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Basic Validation</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (gmi &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showError("Please enter a valid Gross Monthly Income (must be positive).");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isNaN(childrenInCase) || childrenInCase &lt; 1) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showError("Please enter a valid number of children in this case (at least 1).");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isNaN(otherChildren) || otherChildren &lt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showError("Please enter a valid number of other children supported (0 or more).");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 1. Calculate Taxes (FICA and Federal Income Tax)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const taxes = calculateTaxes(gmi, isSelfEmployed);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 2. Calculate Total Deductions</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 'Other Deductions' are those manually entered by the user</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const manuallyEnteredOtherDeductions = stateTaxes + unionDues + healthIns + dentalIns;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalDeductions = taxes.socialSecurityTax + taxes.federalIncomeTax + manuallyEnteredOtherDeductions;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 3. Calculate Net Monthly Income (NMI)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let nmi = gmi - totalDeductions;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (nmi &lt; 0) nmi = 0; // NMI cannot be negative for calculation purposes</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 4. Apply NMI cap for child support calculation</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const effectiveNMI = Math.min(nmi, NMI_CAP);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 5. Determine which percentage table to use based on actual NMI</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const percentageTable = (nmi &lt;= LOW_INCOME_THRESHOLD) ? lowIncomePercentages : standardPercentages;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 6. Get the percentage based on children counts</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tableChildrenInCase = Math.min(childrenInCase, 6); // Max 6 for rows</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tableOtherChildren = Math.min(otherChildren, 7); <span class="Apple-converted-space">  </span>// Max 7 for columns</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let percentage = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (percentageTable[tableChildrenInCase] &amp;&amp; typeof percentageTable[tableChildrenInCase][tableOtherChildren] !== 'undefined') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>percentage = percentageTable[tableChildrenInCase][tableOtherChildren];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Fallback if somehow the table structure isn't matched (should not happen with current logic)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>percentage = percentageTable[tableChildrenInCase] ? percentageTable[tableChildrenInCase][0] : 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.warn("Could not find specific percentage, used fallback for 0 other children.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 7. Calculate final child support amount</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const childSupportAmount = effectiveNMI * percentage;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 8. Display results</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultGMI').textContent = `$${gmi.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultFICATax').textContent = `-$${taxes.socialSecurityTax.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultFedTax').textContent = `-$${taxes.federalIncomeTax.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultOtherDeductions').textContent = `-$${manuallyEnteredOtherDeductions.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultNMI').textContent = `$${nmi.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultEffectiveNMI').textContent = `$${effectiveNMI.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultNumChildren').textContent = childrenInCase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultOtherChildren').textContent = otherChildren;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultPercentage').textContent = `${(percentage * 100).toFixed(2)}%`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultSupportAmount').textContent = childSupportAmount.toFixed(2);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultsDiv.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function clearPreviousResults() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultsDiv.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>errorMessageDiv.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>errorTextP.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showError(message) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>errorTextP.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>errorMessageDiv.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultsDiv.classList.add('hidden'); // Hide results if error occurs</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Add listeners to clear errors when user types/changes inputs</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const inputs = document.querySelectorAll('#supportForm input');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inputs.forEach(input =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.addEventListener('input', () =&gt; { // 'input' event covers typing and checkbox changes</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!errorMessageDiv.classList.contains('hidden')) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>errorMessageDiv.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>errorTextP.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
